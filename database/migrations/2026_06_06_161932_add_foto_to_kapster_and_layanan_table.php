@@ -13,7 +13,7 @@ return new class extends Migration
     {
         // Menambahkan kolom foto ke tabel kapster setelah kolom status
         Schema::table('kapster', function (Blueprint $table) {
-            $table->string('foto')->nullable()->after('status');
+            $table->string('foto')->nullable();
         });
 
         // Menambahkan kolom foto ke tabel layanan setelah kolom harga
