@@ -17,4 +17,16 @@ class EditReservasi extends EditRecord
                 ->visible(fn () => auth()->user()->hasRole('Super Admin')),
         ];
     }
+    protected function getRedirectUrl(): string
+{
+    return $this->getResource()::getUrl('index');
+}
+    protected function afterSave(): void
+    {
+        foreach ($this->record->layanan as $layanan) {
+            $this->record->layanan()->updateExistingPivot($layanan->id, [
+                'harga_saat_ini' => $layanan->harga,
+            ]);
+        }
+    }
 }

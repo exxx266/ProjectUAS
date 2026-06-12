@@ -8,4 +8,8 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateKapster extends CreateRecord
 {
     protected static string $resource = KapsterResource::class;
+    protected function getRedirectUrl(): string
+{
+    return $this->getResource()::getUrl('index');
+}
 }

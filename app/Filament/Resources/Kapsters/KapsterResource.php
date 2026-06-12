@@ -22,6 +22,8 @@ class KapsterResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'nama';
 
+    
+
     // --- TEMBOK PERTAHANAN HAK AKSES ---
     public static function canViewAny(): bool
     {
@@ -54,4 +56,6 @@ class KapsterResource extends Resource
             'edit' => EditKapster::route('/{record}/edit'),
         ];
     }
+
+    
 }

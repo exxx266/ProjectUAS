@@ -20,29 +20,30 @@ class ReservasiForm
             ->components([
                 // 1. Pilihan Pelanggan + Fitur Quick Add (Sistem Email Palsu Otomatis)
                 Select::make('user_id')
-                    ->relationship('user', 'nama') 
+                    ->relationship('user', 'name') // SINKRONISASI 1: Ubah 'nama' menjadi 'name'
                     ->required()
                     ->searchable()
                     ->preload()
                     ->label('Pelanggan')
                     ->createOptionForm([
                         // Kasir HANYA perlu mengisi nama, sisanya sistem yang urus
-                        TextInput::make('nama')
+                        TextInput::make('name') // SINKRONISASI 2: Ubah dari 'nama' menjadi 'name'
                             ->required()
                             ->label('Nama Pelanggan Walk-in'),
                     ])
                     ->createOptionUsing(function (array $data) {
                         // Meracik email palsu unik (hilangkan spasi + tambah 5 karakter acak)
-                        $emailPalsu = strtolower(str_replace(' ', '', $data['nama'])) . '_' . Str::random(5) . '@walkin.local';
+                        $emailPalsu = strtolower(str_replace(' ', '', $data['name'])) . '_' . Str::random(5) . '@walkin.local';
 
+                        // SINKRONISASI 3: Ubah 'nama' => $data['nama'] menjadi 'name' => $data['name']
                         return User::create([
-                            'nama' => $data['nama'],
+                            'name' => $data['name'],
                             'email' => $emailPalsu,
                             'password' => bcrypt('pelanggan123'), 
                         ]);
                     }),
 
-                // 2. Pilihan Kapster
+                // 2. Pilihan Kapster (Tetap 'nama' karena tabel kapster menggunakan 'nama')
                 Select::make('kapster_id')
                     ->relationship('kapster', 'nama') 
                     ->required()
@@ -78,7 +79,7 @@ class ReservasiForm
                 DatePicker::make('tanggal')
                     ->required()
                     ->default(now())
-                    ->minDate(now())
+                    ->minDate(today())
                     ->label('Tanggal Booking'),
 
                 // Input Jam dengan Logika Anti-Bentrok

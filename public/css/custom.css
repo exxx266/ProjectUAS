@@ -1,0 +1,86 @@
+:root {
+    --primary-gold: #cfa858;
+    --primary-gold-hover: #b89346;
+    --bg-dark: #121212;
+    --bg-card: #1e1e1e;
+    --text-light: #f8f9fa;
+    --text-muted: #a0a0a0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Utilities */
+.text-gold {
+    color: var(--primary-gold) !important;
+}
+
+.bg-gold {
+    background-color: var(--primary-gold) !important;
+}
+
+.hover-gold:hover {
+    color: var(--primary-gold) !important;
+    transition: color 0.3s ease;
+}
+
+/* Buttons */
+.btn-gold {
+    background-color: var(--primary-gold);
+    color: #000;
+    font-weight: 600;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    background-color: var(--primary-gold-hover);
+    color: #000;
+}
+
+.btn-outline-gold {
+    border: 1px solid var(--primary-gold);
+    color: var(--primary-gold);
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+    background-color: var(--primary-gold);
+    color: #000;
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--primary-gold);
+}
+
+/* Footer tweaks */
+.footer-border {
+    border-top: 1px solid #2a2a2a;
+}

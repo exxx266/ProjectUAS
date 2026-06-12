@@ -54,4 +54,6 @@ class LayananResource extends Resource
             'edit' => EditLayanan::route('/{record}/edit'),
         ];
     }
+
+    
 }
