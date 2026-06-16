@@ -21,6 +21,17 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 });
 
+// RUTE KHUSUS ADMIN
+Route::prefix('admin')->group(function () {
+    Route::get('/login', [App\Http\Controllers\Admin\AuthController::class, 'showLogin'])->name('admin.login');
+    Route::post('/login', [App\Http\Controllers\Admin\AuthController::class, 'login'])->name('admin.login.post');
+    
+    // Rute yang hanya bisa diakses setelah login admin
+    Route::middleware('auth:admin')->group(function () {
+        Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
+    });
+});
+
 // RUTE KHUSUS PENGGUNA LOGIN (Hanya bisa diakses jika sudah login)
 Route::middleware('auth')->group(function () {
     // Autentikasi
