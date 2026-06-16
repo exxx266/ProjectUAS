@@ -2,70 +2,150 @@
 
 <?php $__env->startPush('styles'); ?>
 <style>
-    body { background-color: #0a0a0a; }
+    .auth-wrapper {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 120px 0 60px;
+        background: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.95)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+    }
     .auth-card {
-        background-color: #161616;
-        border: 1px solid #2a2a2a;
-        border-radius: 8px;
-        padding: 3rem;
+        background: rgba(15, 15, 15, 0.85);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(207, 168, 88, 0.2);
+        border-radius: 12px;
+        padding: 3rem 2.5rem;
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.5);
     }
-    .form-control {
-        background-color: #1e1e1e;
-        border: 1px solid #333;
-        color: white;
+    .form-control-dark {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+        padding: 12px 15px;
+        border-radius: 6px;
     }
-    .form-control:focus {
-        background-color: #1e1e1e;
-        border-color: #cfa858;
-        box-shadow: 0 0 0 0.25rem rgba(207, 168, 88, 0.25);
-        color: white;
+    .form-control-dark:focus {
+        background-color: rgba(255, 255, 255, 0.08);
+        border-color: var(--primary-gold, #cfa858);
+        color: #fff;
+        box-shadow: none;
+    }
+    .form-label {
+        font-size: 0.9rem;
+        color: #e5e5e5;
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+    .btn-gold {
+        background-color: #cfa858;
+        color: #111 !important;
+        font-weight: 700;
+        border-radius: 6px;
+        padding: 12px;
+        transition: all 0.3s ease;
+        border: 2px solid #cfa858;
+        letter-spacing: 1px;
+    }
+    .btn-gold:hover {
+        background-color: transparent;
+        color: #cfa858 !important;
     }
 </style>
 <?php $__env->stopPush(); ?>
 
 <?php $__env->startSection('content'); ?>
-<div class="container py-5 mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="auth-card shadow-lg mt-4">
-                <div class="text-center mb-4">
-                    <h3 class="fw-bold text-white">Buat Akun</h3>
-                    <p class="text-white">Daftar sekarang untuk melakukan reservasi di Caps Studio.</p>
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <div class="text-center mb-4">
+            <h3 class="fw-bold text-white mb-2" style="font-family: 'Playfair Display', serif;">Buat Akun</h3>
+            <p class="text-muted small">Bergabunglah untuk pengalaman grooming terbaik</p>
+        </div>
+
+        <form action="<?php echo e(route('register.post')); ?>" method="POST">
+            <?php echo csrf_field(); ?>
+            
+            <div class="mb-3">
+                <label for="name" class="form-label">Nama Lengkap</label>
+                <input type="text" class="form-control form-control-dark <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="name" name="name" value="<?php echo e(old('name')); ?>" placeholder="Masukkan nama Anda" required autofocus>
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                    <div class="invalid-feedback"><?php echo e($message); ?></div>
+                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control form-control-dark <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="email" name="email" value="<?php echo e(old('email')); ?>" placeholder="contoh@email.com" required>
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                    <div class="invalid-feedback"><?php echo e($message); ?></div>
+                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control form-control-dark <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="password" name="password" placeholder="Minimal 8 karakter" required>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <div class="invalid-feedback"><?php echo e($message); ?></div>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
-
-                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($errors->any()): ?>
-                    <div class="alert alert-danger" style="background-color: rgba(220, 53, 69, 0.1); border-color: rgba(220, 53, 69, 0.3); color: #ff6b6b;">
-                        <?php echo e($errors->first()); ?>
-
-                    </div>
-                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-
-                <form action="<?php echo e(route('register.post')); ?>" method="POST">
-                    <?php echo csrf_field(); ?>
-                    <div class="mb-3">
-                        <label class="form-label text-white">Nama Lengkap</label>
-                        <input type="text" name="name" class="form-control" value="<?php echo e(old('name')); ?>" required autofocus>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label text-white">Email Address</label>
-                        <input type="email" name="email" class="form-control" value="<?php echo e(old('email')); ?>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label text-white">Password (Minimal 8 karakter)</label>
-                        <input type="password" name="password" class="form-control" required minlength="8">
-                    </div>
-                    <div class="mb-4">
-                        <label class="form-label text-white">Konfirmasi Password</label>
-                        <input type="password" name="password_confirmation" class="form-control" required minlength="8">
-                    </div>
-                    <button type="submit" class="btn w-100 fw-bold" style="background-color: #cfa858; color: black;">DAFTAR SEKARANG</button>
-                </form>
-
-                <div class="text-center mt-4">
-                    <p class="text-white mb-0">Sudah punya akun? <a href="<?php echo e(route('login')); ?>" style="color: #cfa858; text-decoration: none;">Login di sini</a></p>
+                
+                <div class="col-md-6 mb-4">
+                    <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                    <input type="password" class="form-control form-control-dark" id="password_confirmation" name="password_confirmation" placeholder="Ulangi password" required>
                 </div>
             </div>
-        </div>
+
+            <button type="submit" class="btn btn-gold w-100 mb-3">DAFTAR SEKARANG</button>
+            
+            <p class="text-center text-muted small mb-0">
+                Sudah punya akun? <a href="<?php echo e(route('login')); ?>" class="text-decoration-none fw-bold" style="color: #cfa858;">Login di sini</a>
+            </p>
+        </form>
     </div>
 </div>
 <?php $__env->stopSection(); ?>

@@ -31,3 +31,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/booking', [BookingController::class, 'create'])->name('booking.create');
     Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 });
+

@@ -60,4 +60,27 @@ class ReservasiResource extends Resource
             'edit' => EditReservasi::route('/{record}/edit'),
         ];
     }
+    public static function canAccess(): bool
+    {
+        return auth()->user()->hasAnyRole(['Super Admin', 'Kasir']);
+    }
+
+    // Kasir & Super Admin boleh lihat list
+public static function canViewAny(): bool
+{
+    return auth()->user()->hasAnyRole(['Super Admin', 'Kasir']);
+}
+
+// Kasir & Super Admin boleh buat reservasi baru
+public static function canCreate(): bool
+{
+    return auth()->user()->hasAnyRole(['Super Admin', 'Kasir']);
+}
+
+// Kasir & Super Admin boleh edit
+public static function canEdit(\Illuminate\Database\Eloquent\Model $record): bool
+{
+    return auth()->user()->hasAnyRole(['Super Admin', 'Kasir']);
+}
+
 }

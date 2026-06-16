@@ -54,6 +54,9 @@ class LayananResource extends Resource
             'edit' => EditLayanan::route('/{record}/edit'),
         ];
     }
-
+    public static function canAccess(): bool
+{
+    return auth()->user()->hasRole('Super Admin');
+}
     
 }

@@ -57,5 +57,9 @@ class KapsterResource extends Resource
         ];
     }
 
-    
+    public static function canAccess(): bool
+    {
+    return auth()->user()->hasRole('Super Admin');
+    }
 }
+

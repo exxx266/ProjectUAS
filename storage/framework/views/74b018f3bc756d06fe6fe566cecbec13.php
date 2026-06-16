@@ -46,13 +46,13 @@
                             <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             
                             
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(Auth::user()->hasAnyRole(['Super Admin', 'Kasir'])): ?>
                             <li>
                                 <a class="dropdown-item py-2 small text-white" href="<?php echo e(route('booking.history')); ?>">
                                     <i class="bi bi-clock-history me-2 text-muted"></i>Riwayat Reservasi
                                 </a>
                             </li>
-                            
-                            <li><hr class="dropdown-divider" style="border-color: #2a2a2a;"></li>
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             
                             
                             <li>
