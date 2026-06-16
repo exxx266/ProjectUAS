@@ -10,7 +10,7 @@ Route::get('/', function () {
         'layanans' => \App\Models\Layanan::all(),
         'kapsters' => \App\Models\Kapster::all(),
     ]);
-});
+}); 
 
 // RUTE AUTENTIKASI PUBLIK (Hanya bisa diakses jika belum login)
 Route::middleware('guest')->group(function () {
