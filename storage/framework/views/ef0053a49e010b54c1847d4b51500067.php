@@ -1,23 +1,19 @@
 <?php $__env->startPush('styles'); ?>
 <style>
-    /* Efek Gerakan Scroll yang Mulus & Jarak Aman Navbar */
     html {
         scroll-behavior: smooth;
-        scroll-padding-top: 90px; /* Mencegah judul tertutup navbar */
+        scroll-padding-top: 90px; 
     }
 
-    /* Standardisasi Spacing untuk Semua Section (Kecuali Hero) */
     section[id]:not(#home) {
         padding-top: 100px !important;
         padding-bottom: 100px !important;
     }
 
-    /* Global Variables */
     :root {
         --primary-gold: #cfa858;
     }
 
-    /* Memperbaiki Kontras Teks agar lebih mudah dibaca */
     .text-muted {
         color: #9ca3af !important; 
     }
@@ -25,7 +21,6 @@
         line-height: 1.7;
     }
 
-    /* Hero Section */
     .hero-section {
         background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
         padding: 160px 0 100px;
@@ -240,7 +235,6 @@
         font-weight: 500;
     }
 
-    /* Contact Cards (Glassmorphism Effect) */
     .contact-card {
         background: rgba(255, 255, 255, 0.02);
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -256,7 +250,6 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
-    /* Override Navbar & Perbaikan Kontras Tinggi Menu Footer */
     .nav-inactive-gray {
         color: #e2e8f0 !important;
         font-weight: 500 !important;

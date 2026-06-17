@@ -62,15 +62,6 @@
                                 <li><hr class="dropdown-divider" style="border-color: #2a2a2a;"></li>
                             @endif
                             
-                            {{-- Menu Riwayat untuk Pelanggan (yang bukan admin/kasir) --}}
-                            @if(!Auth::user()->hasAnyRole(['Super Admin', 'Kasir']))
-                            <li>
-                                <a class="dropdown-item py-2 small text-white" href="{{ route('booking.history') }}">
-                                    <i class="bi bi-clock-history me-2 text-muted"></i>Riwayat Reservasi
-                                </a>
-                            </li>
-                            @endif
-                            
                             {{-- Tombol Keluar --}}
                             <li>
                                 <form action="{{ route('logout') }}" method="POST" class="m-0 p-0">
