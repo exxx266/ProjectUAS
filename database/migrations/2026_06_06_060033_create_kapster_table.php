@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('kapster', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('keahlian'); // KITA SUNTIKKAN KOLOM KEAHLIAN YANG HILANG DI SINI
+            $table->string('keahlian');
             $table->string('status')->default('Aktif');
             $table->timestamps();
         });

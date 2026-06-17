@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('reservasi_id')->constrained('reservasi')->onDelete('cascade');
             $table->foreignId('layanan_id')->constrained('layanan')->onDelete('cascade');
-            $table->integer('harga_saat_ini')->default(0); // Menyimpan harga layanan pada saat dipesan
+            $table->integer('harga_saat_ini')->default(0);
         });
     }
 

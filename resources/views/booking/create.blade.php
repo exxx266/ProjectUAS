@@ -20,7 +20,6 @@
         box-shadow: 0 0 0 0.25rem rgba(207, 168, 88, 0.25);
         color: white;
     }
-    /* Mengubah warna checkbox standar menjadi emas */
     .form-check-input:checked {
         background-color: #cfa858;
         border-color: #cfa858;

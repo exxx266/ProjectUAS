@@ -16,10 +16,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('kapster_id')->constrained('kapster')->onDelete('cascade');
             $table->date('tanggal');
-            $table->string('slot_waktu'); // Menyimpan jam pilihan, misal '13:00'
+            $table->string('slot_waktu');
             $table->string('metode_pembayaran');
             $table->string('status_pembayaran');
-            // Tanpa $table->timestamps() karena model kamu menonaktifkannya (public $timestamps = false)
         });
     }
 

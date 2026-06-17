@@ -5,12 +5,10 @@ namespace App\Filament\Resources\Reservasis\Tables;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 
-// --- ALAMAT YANG BENAR UNTUK FILAMENT TERBARU ---
 use Filament\Actions\EditAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
-// ------------------------------------------------
 
 class ReservasisTable
 {

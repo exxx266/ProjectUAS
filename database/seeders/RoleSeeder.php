@@ -11,7 +11,7 @@ class RoleSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1. Membuat Role dengan aman (Anti-Duplikasi)
+        // 1. Membuat Role dengan aman
         Role::firstOrCreate(['name' => 'owner']);
         Role::firstOrCreate(['name' => 'kasir']);
         Role::firstOrCreate(['name' => 'pelanggan']);
@@ -23,8 +23,6 @@ class RoleSeeder extends Seeder
             [
                 'nama' => 'Ahmad Husein Mufahir',
                 'password' => Hash::make('password123'),
-                
-                // INI DIA KUNCINYA! Harus persis dengan yang ada di phpMyAdmin
                 'role' => 'Admin' 
             ]
         );

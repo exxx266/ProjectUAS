@@ -18,24 +18,20 @@ class ReservasiForm
     {
         return $schema
             ->components([
-                // 1. Pilihan Pelanggan + Fitur Quick Add (Sistem Email Palsu Otomatis)
                 Select::make('user_id')
-                    ->relationship('user', 'name') // SINKRONISASI 1: Ubah 'nama' menjadi 'name'
+                    ->relationship('user', 'name') 
                     ->required()
                     ->searchable()
                     ->preload()
                     ->label('Pelanggan')
                     ->createOptionForm([
-                        // Kasir HANYA perlu mengisi nama, sisanya sistem yang urus
-                        TextInput::make('name') // SINKRONISASI 2: Ubah dari 'nama' menjadi 'name'
+                        TextInput::make('name') 
                             ->required()
                             ->label('Nama Pelanggan Walk-in'),
                     ])
                     ->createOptionUsing(function (array $data) {
-                        // Meracik email palsu unik (hilangkan spasi + tambah 5 karakter acak)
                         $emailPalsu = strtolower(str_replace(' ', '', $data['name'])) . '_' . Str::random(5) . '@walkin.local';
 
-                        // SINKRONISASI 3: Ubah 'nama' => $data['nama'] menjadi 'name' => $data['name']
                         return User::create([
                             'name' => $data['name'],
                             'email' => $emailPalsu,
@@ -43,7 +39,7 @@ class ReservasiForm
                         ]);
                     }),
 
-                // 2. Pilihan Kapster (Tetap 'nama' karena tabel kapster menggunakan 'nama')
+                // 2. Pilihan Kapster
                 Select::make('kapster_id')
                     ->relationship('kapster', 'nama') 
                     ->required()
@@ -60,7 +56,6 @@ class ReservasiForm
                     ->live()
                     ->label('Layanan / Jasa'),
 
-                // Layar kalkulator otomatis
                 Placeholder::make('total_tagihan')
                     ->label('Total Tagihan')
                     ->content(function ($get) {
@@ -82,7 +77,6 @@ class ReservasiForm
                     ->minDate(today())
                     ->label('Tanggal Booking'),
 
-                // Input Jam dengan Logika Anti-Bentrok
                 TimePicker::make('slot_waktu')
                     ->label('Jam Reservasi')
                     ->minDate('10:00')

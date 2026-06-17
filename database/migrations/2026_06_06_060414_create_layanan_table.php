@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('layanan', function (Blueprint $table) {
             $table->id();
             $table->string('nama_layanan');
-            $table->integer('harga'); // Pakai integer biar aman kalau harganya ratusan ribu
+            $table->integer('harga');
             $table->timestamps();
         });
     }

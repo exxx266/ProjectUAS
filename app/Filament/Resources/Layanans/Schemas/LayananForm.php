@@ -20,7 +20,6 @@ class LayananForm
                     ->required()
                     ->numeric(),
                 
-                // Komponen Upload Foto untuk Layanan
                 FileUpload::make('foto')
                     ->image()
                     ->disk('public')

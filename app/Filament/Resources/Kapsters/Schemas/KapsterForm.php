@@ -24,7 +24,6 @@ class KapsterForm
                     ->required()
                     ->maxLength(255),
                 
-                // Ini dia komponen ajaib untuk Upload Foto
                 FileUpload::make('foto')
                     ->image()
                     ->disk('public')

@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Menambahkan kolom foto ke tabel kapster setelah kolom status
         Schema::table('kapster', function (Blueprint $table) {
             $table->string('foto')->nullable();
         });
 
-        // Menambahkan kolom foto ke tabel layanan setelah kolom harga
         Schema::table('layanan', function (Blueprint $table) {
             $table->string('foto')->nullable()->after('harga');
         });

@@ -12,13 +12,10 @@ class StatsOverview extends BaseWidget
     {
         $hariIni = date('Y-m-d');
 
-        // Menghitung total transaksi berdasarkan kolom 'tanggal' di tabel reservasi kamu
         $totalTransaksi = DB::table('reservasi')
             ->whereDate('tanggal', $hariIni)
             ->count();
 
-        // Karena total_harga tidak ada di tabel reservasi, kita lakukan JOIN ke detail_reservasi
-        // untuk menjumlahkan harga_saat_ini dari semua layanan yang dipesan hari ini
         $totalPemasukan = DB::table('reservasi')
             ->join('detail_reservasi', 'reservasi.id', '=', 'detail_reservasi.reservasi_id')
             ->whereDate('reservasi.tanggal', $hariIni)

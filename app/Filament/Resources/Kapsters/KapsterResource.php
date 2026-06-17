@@ -24,12 +24,10 @@ class KapsterResource extends Resource
 
     
 
-    // --- TEMBOK PERTAHANAN HAK AKSES ---
     public static function canViewAny(): bool
     {
         return auth()->user()->hasRole('Super Admin');
     }
-    // -----------------------------------
 
     public static function form(Schema $schema): Schema
     {

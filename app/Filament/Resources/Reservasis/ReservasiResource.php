@@ -20,10 +20,9 @@ class ReservasiResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    // UBAH DI SINI: dari 'nama' menjadi 'slot_waktu' karena tabel reservasi tidak memiliki kolom nama
+    
     protected static ?string $recordTitleAttribute = 'slot_waktu';
 
-    // --- TEMBOK ANTI-HAPUS UNTUK KASIR ---
     public static function canDelete(\Illuminate\Database\Eloquent\Model $record): bool
     {
         return auth()->user()->hasRole('Super Admin');
@@ -33,7 +32,6 @@ class ReservasiResource extends Resource
     {
         return auth()->user()->hasRole('Super Admin');
     }
-    // -------------------------------------
 
     public static function form(Schema $schema): Schema
     {

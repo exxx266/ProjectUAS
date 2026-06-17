@@ -11,7 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // KITA KEMBALIKAN BLOK PEMBUAT TABEL USERS YANG HILANG DI SINI
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');

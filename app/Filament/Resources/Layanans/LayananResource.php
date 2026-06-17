@@ -22,12 +22,10 @@ class LayananResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'nama';
 
-    // --- TEMBOK PERTAHANAN HAK AKSES ---
     public static function canViewAny(): bool
     {
         return auth()->user()->hasRole('Super Admin');
     }
-    // -----------------------------------
 
     public static function form(Schema $schema): Schema
     {
