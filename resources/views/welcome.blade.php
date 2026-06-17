@@ -2,24 +2,20 @@
 
 @push('styles')
 <style>
-    /* Efek Gerakan Scroll yang Mulus & Jarak Aman Navbar */
     html {
         scroll-behavior: smooth;
-        scroll-padding-top: 90px; /* Mencegah judul tertutup navbar */
+        scroll-padding-top: 90px; 
     }
 
-    /* Standardisasi Spacing untuk Semua Section (Kecuali Hero) */
     section[id]:not(#home) {
         padding-top: 100px !important;
         padding-bottom: 100px !important;
     }
 
-    /* Global Variables */
     :root {
         --primary-gold: #cfa858;
     }
 
-    /* Memperbaiki Kontras Teks agar lebih mudah dibaca */
     .text-muted {
         color: #9ca3af !important; 
     }
@@ -27,7 +23,6 @@
         line-height: 1.7;
     }
 
-    /* Hero Section */
     .hero-section {
         background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
         padding: 160px 0 100px;
@@ -242,7 +237,6 @@
         font-weight: 500;
     }
 
-    /* Contact Cards (Glassmorphism Effect) */
     .contact-card {
         background: rgba(255, 255, 255, 0.02);
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -258,7 +252,6 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
-    /* Override Navbar & Perbaikan Kontras Tinggi Menu Footer */
     .nav-inactive-gray {
         color: #e2e8f0 !important;
         font-weight: 500 !important;
@@ -294,13 +287,13 @@
 {{-- SECTION: HOME --}}
 <section id="home" class="hero-section">
     <div class="container">
-        <span class="badge-premium">PREMIUM MANAGEMENT</span>
+        <span class="badge-premium">PREMIUM GROOMING</span>
         <h1 class="hero-title text-white">
-            Caps Studio Barbershop <br>
-            <span style="color: var(--primary-gold);">Management Information System</span>
+            Upgrade Your Crown, <br>
+            <span style="color: var(--primary-gold);">Elevate Your Style.</span>
         </h1>
         <p class="hero-subtitle">
-            Digitalizing haircut reservations, barber schedules, service management, and daily income reports for the modern elite barbershop.
+            Experience premium grooming, precision haircuts, and seamless online booking tailored for the modern gentleman.
         </p>
         <a href="{{ route('booking.create') }}" class="btn btn-gold mt-3">BOOKING SEKARANG</a>
     </div>
@@ -309,32 +302,39 @@
 <section class="py-5" style="margin-top: -50px; position: relative; z-index: 10;">
     <div class="container">
         <div class="row g-4 justify-content-center">
+            {{-- Card 1: Navigasi ke Layanan --}}
             <div class="col-lg-3 col-md-6">
-                <a href="/admin/reservasis" class="feature-card d-block text-decoration-none">
-                    <div class="feature-icon"><i class="bi bi-calendar-event"></i></div>
-                    <h5 class="fw-bold mb-3 text-white" style="font-family: 'Inter', sans-serif;">Online Reservation</h5>
-                    <p class="text-muted small mb-0">Book haircut schedules easily and efficiently.</p>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <a href="/admin/kapsters" class="feature-card d-block text-decoration-none">
-                    <div class="feature-icon"><i class="bi bi-person-badge"></i></div>
-                    <h5 class="fw-bold mb-3 text-white" style="font-family: 'Inter', sans-serif;">Barber Schedule</h5>
-                    <p class="text-muted small mb-0">Manage barber availability and work schedules seamlessly.</p>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <a href="/admin/layanans" class="feature-card d-block text-decoration-none">
+                <a href="#layanan" class="feature-card d-block text-decoration-none">
                     <div class="feature-icon"><i class="bi bi-scissors"></i></div>
-                    <h5 class="fw-bold mb-3 text-white" style="font-family: 'Inter', sans-serif;">Service Management</h5>
-                    <p class="text-muted small mb-0">Manage haircut services, treatments, and pricing structures.</p>
+                    <h5 class="fw-bold mb-3 text-white" style="font-family: 'Inter', sans-serif;">Premium Services</h5>
+                    <p class="text-muted small mb-0">Jelajahi berbagai layanan pangkas rambut dan perawatan pria terbaik kami.</p>
                 </a>
             </div>
+            
+            {{-- Card 2: Navigasi ke Kapster --}}
             <div class="col-lg-3 col-md-6">
-                <a href="/admin" class="feature-card d-block text-decoration-none">
-                    <div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
-                    <h5 class="fw-bold mb-3 text-white" style="font-family: 'Inter', sans-serif;">Income Reports</h5>
-                    <p class="text-muted small mb-0">Automatic daily revenue reports and detailed transaction summaries.</p>
+                <a href="#kapster" class="feature-card d-block text-decoration-none">
+                    <div class="feature-icon"><i class="bi bi-person-badge"></i></div>
+                    <h5 class="fw-bold mb-3 text-white" style="font-family: 'Inter', sans-serif;">Expert Barbers</h5>
+                    <p class="text-muted small mb-0">Ditangani langsung oleh kapster profesional dengan jam terbang tinggi.</p>
+                </a>
+            </div>
+            
+            {{-- Card 3: Navigasi ke Tentang Kami --}}
+            <div class="col-lg-3 col-md-6">
+                <a href="#tentang" class="feature-card d-block text-decoration-none">
+                    <div class="feature-icon"><i class="bi bi-award"></i></div>
+                    <h5 class="fw-bold mb-3 text-white" style="font-family: 'Inter', sans-serif;">The Experience</h5>
+                    <p class="text-muted small mb-0">Lebih dari sekadar potong rambut. Rasakan standar grooming yang sesungguhnya.</p>
+                </a>
+            </div>
+            
+            {{-- Card 4: Navigasi ke Kontak --}}
+            <div class="col-lg-3 col-md-6">
+                <a href="#kontak" class="feature-card d-block text-decoration-none">
+                    <div class="feature-icon"><i class="bi bi-geo-alt"></i></div>
+                    <h5 class="fw-bold mb-3 text-white" style="font-family: 'Inter', sans-serif;">Visit Studio</h5>
+                    <p class="text-muted small mb-0">Temukan lokasi kami dan jadwalkan sesi potong rambutmu dengan mudah.</p>
                 </a>
             </div>
         </div>
@@ -346,7 +346,7 @@
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="fw-bold text-white mb-2">Layanan Kami</h2>
-            <p class="text-muted">Premium grooming services tailored for the modern gentleman.</p>
+            <p class="text-muted">Layanan perawatan premium yang dirancang khusus untuk Anda.</p>
         </div>
 
         <div class="row g-4 justify-content-center">
@@ -388,7 +388,7 @@
         <div class="d-flex justify-content-between align-items-end mb-5">
             <div>
                 <h2 class="fw-bold text-white mb-2">Kapster Profesional</h2>
-                <p class="text-muted mb-0">Master craftsmen dedicated to the art of grooming.</p>
+                <p class="text-muted mb-0">Para ahli terampil yang berdedikasi pada style rambut Anda.</p>
             </div>
         </div>
 
@@ -501,7 +501,7 @@
                         </li>
                         <li class="d-flex justify-content-between border-bottom border-dark py-3">
                             <span>Sabtu - Minggu</span>
-                            <span class="text-white fw-semibold">09:00 - 23:00 WIB</span>
+                            <span class="text-white fw-semibold">10:00 - 22:00 WIB</span>
                         </li>
                         <li class="d-flex justify-content-between py-3">
                             <span>Hari Libur Nasional</span>

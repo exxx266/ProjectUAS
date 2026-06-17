@@ -46,7 +46,7 @@
             <div class="booking-card shadow-lg mt-4">
                 <div class="text-center mb-5">
                     <h2 class="fw-bold text-white">Reservasi Layanan</h2>
-                    <p class="text-muted">Pilih layanan premium dan kapster terbaik kami.</p>
+                    <p style="color: #aaaaaa;">Pilih layanan premium dan kapster terbaik kami.</p>
                 </div>
 
                 {{-- Menampilkan pesan error validasi jika ada yang terlewat --}}

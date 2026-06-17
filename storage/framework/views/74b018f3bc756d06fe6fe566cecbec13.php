@@ -17,9 +17,26 @@
             <div class="d-flex align-items-center">
                 <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(auth()->guard()->guest()): ?>
                     
-                    <div class="d-flex gap-2">
-                        <a href="<?php echo e(route('login')); ?>" class="btn btn-nav-user">Masuk User</a>
-                        <a href="<?php echo e(url('/admin/login')); ?>" class="btn btn-nav-admin">Masuk Admin</a>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: 1px solid #cfa858; color: #cfa858; padding: 6px 22px; border-radius: 50px; font-weight: 600; font-size: 0.85rem; letter-spacing: 1px; transition: all 0.3s ease;">
+                            <span>MASUK</span>
+                        </button>
+                        
+                        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow-lg mt-3" style="background-color: #161616; border: 1px solid #2a2a2a; border-radius: 8px; min-width: 220px;">
+                            <li>
+                                <a class="dropdown-item py-3 small text-white d-flex align-items-center" href="<?php echo e(route('login')); ?>" style="transition: background 0.2s;">
+                                    <i class="bi bi-person me-3 fs-5" style="color: #cfa858;"></i>
+                                    <span class="fw-semibold">Sebagai Pelanggan</span>
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider m-0" style="border-color: #2a2a2a;"></li>
+                            <li>
+                                <a class="dropdown-item py-3 small text-white d-flex align-items-center" href="<?php echo e(url('/admin/login')); ?>" style="transition: background 0.2s;">
+                                    <i class="bi bi-shield-lock me-3 fs-5" style="color: #cfa858;"></i>
+                                    <span class="fw-semibold">Sebagai Admin</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 <?php else: ?>
                     
@@ -46,7 +63,7 @@
                             <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             
                             
-                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(Auth::user()->hasAnyRole(['Super Admin', 'Kasir'])): ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!Auth::user()->hasAnyRole(['Super Admin', 'Kasir'])): ?>
                             <li>
                                 <a class="dropdown-item py-2 small text-white" href="<?php echo e(route('booking.history')); ?>">
                                     <i class="bi bi-clock-history me-2 text-muted"></i>Riwayat Reservasi
