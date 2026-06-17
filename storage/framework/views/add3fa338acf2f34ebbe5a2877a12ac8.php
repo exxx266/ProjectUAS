@@ -100,7 +100,6 @@
                 let scrollY = window.pageYOffset;
                 let currentSection = '';
 
-                // A. LOGIKA UTAMA: Cek koordinat masing-masing seksi
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop - 150;
                     const sectionHeight = section.offsetHeight;
@@ -110,18 +109,13 @@
                     }
                 });
 
-                // B. LOGIKA PENGAMAN 1: Jika di posisi paling atas, paksa ke Beranda
                 if (scrollY < 50) {
                     currentSection = '#home';
                 }
-
-                // C. LOGIKA PENGAMAN 2 (SOLUSI UTAMA): Jika sudah mentok bawah halaman
-                // Jika tinggi layar + jarak gulir sudah sama dengan total tinggi seluruh dokumen
+                
                 if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 20) {
                     currentSection = '#kontak';
                 }
-
-                // Eksekusi penyematan warna emas
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     if (currentSection && link.getAttribute('href').includes(currentSection)) {

@@ -52,15 +52,20 @@
                                 <span class="text-white fw-bold small">{{ Auth::user()->email }}</span>
                             </li>
                             
-                            {{-- Menu Khusus Admin / Kasir --}}
-                            @if(Auth::user()->hasAnyRole(['Super Admin', 'Kasir']))
-                                <li>
-                                    <a class="dropdown-item py-2 small fw-bold" href="{{ url('/admin') }}" style="color: #cfa858;">
-                                        <i class="bi bi-speedometer2 me-2"></i>Panel Admin
-                                    </a>
-                                </li>
-                                <li><hr class="dropdown-divider" style="border-color: #2a2a2a;"></li>
-                            @endif
+                                {{-- Menu Khusus Owner (Super Admin) & Kasir --}}
+                                @if(Auth::user()->hasAnyRole(['Super Admin', 'Kasir']))
+                                    <li>
+                                        <a class="dropdown-item py-2 small fw-bold" href="{{ url('/admin') }}" style="color: #cfa858;">
+                                            <i class="bi bi-speedometer2 me-2"></i>Panel Admin
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item py-2 small text-white" href="{{ route('booking.history') }}">
+                                            <i class="bi bi-clock-history me-2 text-muted"></i>Riwayat Reservasi
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider" style="border-color: #2a2a2a;"></li>
+                                @endif
                             
                             {{-- Tombol Keluar --}}
                             <li>

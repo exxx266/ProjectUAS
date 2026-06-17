@@ -555,7 +555,6 @@
             }
         });
 
-        // Deteksi scroll aktif hanya untuk komponen menu navbar utama
         const daftarSection = document.querySelectorAll('section[id]');
         const menuNavigasiNavbar = document.querySelectorAll('.navbar a[href^="#"], nav a[href^="#"]');
 
