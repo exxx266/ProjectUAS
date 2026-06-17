@@ -23,15 +23,20 @@
     .form-control-dark {
         background-color: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        color: #fff;
+        color: #ffffff !important; /* Memaksa teks yang diketik menjadi putih */
         padding: 12px 15px;
         border-radius: 6px;
     }
     .form-control-dark:focus {
         background-color: rgba(255, 255, 255, 0.08);
         border-color: var(--primary-gold, #cfa858);
-        color: #fff;
+        color: #ffffff !important;
         box-shadow: none;
+    }
+    /* Memaksa teks bayangan (placeholder) agar lebih terang dan terbaca */
+    .form-control-dark::placeholder {
+        color: #9ca3af !important;
+        opacity: 1 !important;
     }
     .form-label {
         font-size: 0.9rem;
@@ -52,6 +57,10 @@
     .btn-gold:hover {
         background-color: transparent;
         color: #cfa858 !important;
+    }
+    /* Memperbaiki warna teks pelengkap di form agar tidak tertelan background gelap */
+    .text-muted.small {
+        color: #d1d5db !important;
     }
 </style>
 @endpush
